@@ -9,7 +9,7 @@
 const musicData = [
   {
     backgroundImage: "/assets /img/fuli poster.jpeg",
-    posterUrl: "./assets /img/fuli poster.jpeg",
+    posterUrl: "/assets /img/Fuli.jpeg",
     title: "Fuli Auto Shooter",
     album: "Phigros/MuseDash",
     year: 2018,
@@ -53,8 +53,8 @@ const musicData = [
     musicPath: "/music/ブルーアーカイブ Blue Archive OST 7. Unwelcome School.mp3",
   },
   {
-  backgroundImage: "/assets /hutao.jpeg",
-    posterUrl: "/assets /hutao.jpeg",
+  backgroundImage: "/assets /img/whoTao.jpeg",
+    posterUrl: "/assets /img/whoTao.jpeg",
     title: "Who Tao Theme(Let the Living Beware)",
     album: "The could never G Game",
     year: 2021,
