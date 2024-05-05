@@ -22,7 +22,7 @@ const musicData = [
     title: "Inkar-Usi",
     album: "Arcaea/Rotaeno",
     year: 2021,
-    artist: "Dia",
+    artist: "DIA",
     musicPath: "/music/inkar-usi.mp3",
   },
   {
@@ -53,15 +53,15 @@ const musicData = [
     musicPath: "/music/ブルーアーカイブ Blue Archive OST 7. Unwelcome School.mp3",
   },
   {
-  backgroundImage: "/assets /img/whoTao.jpeg",
+    backgroundImage: "/assets /img/whoTao.jpeg",
     posterUrl: "/assets /img/whoTao.jpeg",
-    title: "Who Tao Theme(Let the Living Beware)",
+    title: "Who? Tao Theme(Let the Living Beware)",
     album: "The could never G Game",
     year: 2021,
     artist: "tnbee",
-    musicPath:"/music/Let the Living Beware.mp3",
+    musicPath: "/music/Let the Living Beware.mp3",
     },
-    
+
 ];
 
 
@@ -70,7 +70,7 @@ const musicData = [
  * add eventListnere on all elements that are passed
  */
 
-const addEventOnElements = function (elements, eventType, callback) {
+const addEventOnElements = function(elements, eventType, callback) {
   for (let i = 0, len = elements.length; i < len; i++) {
     elements[i].addEventListener(eventType, callback);
   }
@@ -114,7 +114,7 @@ const playlistSideModal = document.querySelector("[data-playlist]");
 const playlistTogglers = document.querySelectorAll("[data-playlist-toggler]");
 const overlay = document.querySelector("[data-overlay]");
 
-const togglePlaylist = function () {
+const togglePlaylist = function() {
   playlistSideModal.classList.toggle("active");
   overlay.classList.toggle("active");
   document.body.classList.toggle("modalActive");
@@ -136,12 +136,12 @@ const playlistItems = document.querySelectorAll("[data-playlist-item]");
 let currentMusic = 0;
 let lastPlayedMusic = 0;
 
-const changePlaylistItem = function () {
+const changePlaylistItem = function() {
   playlistItems[lastPlayedMusic].classList.remove("playing");
   playlistItems[currentMusic].classList.add("playing");
 }
 
-addEventOnElements(playlistItems, "click", function () {
+addEventOnElements(playlistItems, "click", function() {
   lastPlayedMusic = currentMusic;
   currentMusic = Number(this.dataset.playlistItem);
   changePlaylistItem();
@@ -154,8 +154,8 @@ addEventOnElements(playlistItems, "click", function () {
  * 
  * change all visual information on player, based on current music
  */
- 
- const playerBanner = document.querySelector("[data-player-banner]");
+
+const playerBanner = document.querySelector("[data-player-banner]");
 const playerTitle = document.querySelector("[data-title]");
 const playerAlbum = document.querySelector("[data-album]");
 const playerYear = document.querySelector("[data-year]");
@@ -163,7 +163,7 @@ const playerArtist = document.querySelector("[data-artist]");
 
 const audioSource = new Audio(musicData[currentMusic].musicPath);
 
-const changePlayerInfo = function () {
+const changePlayerInfo = function() {
   playerBanner.src = musicData[currentMusic].posterUrl;
   playerBanner.setAttribute("alt", `${musicData[currentMusic].title} Album Poster`);
   document.body.style.backgroundImage = `url(${musicData[currentMusic].backgroundImage})`;
@@ -185,14 +185,14 @@ const playerDuration = document.querySelector("[data-duration]");
 const playerSeekRange = document.querySelector("[data-seek]");
 
 /** pass seconds and get timcode formate */
-const getTimecode = function (duration) {
+const getTimecode = function(duration) {
   const minutes = Math.floor(duration / 60);
   const seconds = Math.ceil(duration - (minutes * 60));
   const timecode = `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
   return timecode;
 }
 
-const updateDuration = function () {
+const updateDuration = function() {
   playerSeekRange.max = Math.ceil(audioSource.duration);
   playerDuration.textContent = getTimecode(Number(playerSeekRange.max));
 }
@@ -211,7 +211,7 @@ const playBtn = document.querySelector("[data-play-btn]");
 
 let playInterval;
 
-const playMusic = function () {
+const playMusic = function() {
   if (audioSource.paused) {
     audioSource.play();
     playBtn.classList.add("active");
@@ -230,7 +230,7 @@ playBtn.addEventListener("click", playMusic);
 
 const playerRunningTime = document.querySelector("[data-running-time");
 
-const updateRunningTime = function () {
+const updateRunningTime = function() {
   playerSeekRange.value = audioSource.currentTime;
   playerRunningTime.textContent = getTimecode(audioSource.currentTime);
 
@@ -249,7 +249,7 @@ const updateRunningTime = function () {
 const ranges = document.querySelectorAll("[data-range]");
 const rangeFill = document.querySelector("[data-range-fill]");
 
-const updateRangeFill = function () {
+const updateRangeFill = function() {
   let element = this || ranges[0];
 
   const rangeValue = (element.value / element.max) * 100;
@@ -266,7 +266,7 @@ addEventOnElements(ranges, "input", updateRangeFill);
  * seek music while changing player seek range
  */
 
-const seek = function () {
+const seek = function() {
   audioSource.currentTime = playerSeekRange.value;
   playerRunningTime.textContent = getTimecode(playerSeekRange.value);
 }
@@ -279,16 +279,24 @@ playerSeekRange.addEventListener("input", seek);
  * END MUSIC
  */
 
-const isMusicEnd = function () {
+const isMusicEnd = function() {
   if (audioSource.ended) {
     playBtn.classList.remove("active");
-    audioSource.currentTime = 0;
-    playerSeekRange.value = audioSource.currentTime;
+    /*audioSource.currentMusic=0;*/
+    /*playerSeekRange.value = audioSource.currentTime;*/
     playerRunningTime.textContent = getTimecode(audioSource.currentTime);
+    lastPlayedMusic = currentNlMusic;
+    if (isShuffled) {
+      shuffleMusic();
+    } else {
+      currentMusic >= musicData.length - 1 ? currentMusic = 0 : currentMusic++;
+    }
+    skipNext();
+    changePlayerInfo();
+    changePlaylistItem();
     updateRangeFill();
   }
 }
-
 
 
 /**
@@ -297,7 +305,7 @@ const isMusicEnd = function () {
 
 const playerSkipNextBtn = document.querySelector("[data-skip-next]");
 
-const skipNext = function () {
+const skipNext = function() {
   lastPlayedMusic = currentMusic;
 
   if (isShuffled) {
@@ -320,7 +328,7 @@ playerSkipNextBtn.addEventListener("click", skipNext);
 
 const playerSkipPrevBtn = document.querySelector("[data-skip-prev]");
 
-const skipPrev = function () {
+const skipPrev = function() {
   lastPlayedMusic = currentMusic;
 
   if (isShuffled) {
@@ -349,12 +357,11 @@ const shuffleMusic = () => currentMusic = getRandomMusic();
 const playerShuffleBtn = document.querySelector("[data-shuffle]");
 let isShuffled = false;
 
-const shuffle = function () {
+const shuffle = function() {
   playerShuffleBtn.classList.toggle("active");
 
   isShuffled = isShuffled ? false : true;
 }
-
 playerShuffleBtn.addEventListener("click", shuffle);
 
 
@@ -365,7 +372,7 @@ playerShuffleBtn.addEventListener("click", shuffle);
 
 const playerRepeatBtn = document.querySelector("[data-repeat]");
 
-const repeat = function () {
+const repeat = function() {
   if (!audioSource.loop) {
     audioSource.loop = true;
     this.classList.add("active");
@@ -388,7 +395,7 @@ playerRepeatBtn.addEventListener("click", repeat);
 const playerVolumeRange = document.querySelector("[data-volume]");
 const playerVolumeBtn = document.querySelector("[data-volume-btn]");
 
-const changeVolume = function () {
+const changeVolume = function() {
   audioSource.volume = playerVolumeRange.value;
   audioSource.muted = false;
 
@@ -408,7 +415,7 @@ playerVolumeRange.addEventListener("input", changeVolume);
  * MUTE MUSIC
  */
 
-const muteVolume = function () {
+const muteVolume = function() {
   if (!audioSource.muted) {
     audioSource.muted = true;
     playerVolumeBtn.children[0].textContent = "volume_off";
@@ -418,4 +425,30 @@ const muteVolume = function () {
 }
 
 playerVolumeBtn.addEventListener("click", muteVolume);
+
+
+
+// Function to play the next song when the current one ends
+const playNextSong = function() {
+  // Increment current music index or shuffle if shuffle mode is active
+  if (isShuffled) {
+    shuffleMusic();
+  } else {
+    currentMusic = (currentMusic + 1) % musicData.length;
+  }
+
+  // Change player info and play the next song
+  changePlayerInfo();
+  changePlaylistItem();
+}
+
+// Event listener for 'ended' event of the audio element
+audioSource.addEventListener("ended", playNextSong);
+
+// Function to play a randomly selected song
+const playRandomSong = function() {
+  shuffleMusic(); // Shuffle the music
+  changePlayerInfo(); // Change player info to the shuffled song
+  changePlaylistItem(); // Update playlist item to reflect the shuffled song
+}
 

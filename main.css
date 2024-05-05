@@ -1,18 +1,3 @@
-/*-----------------------------------*\
-  #style.css
-\*-----------------------------------*/
-
-/**
- * copyright 2022 codewithsadee
- */
-
-
-
-
-
-/*-----------------------------------*\
-  #CUSTOM PROPERTY
-\*-----------------------------------*/
 
 :root {
 
@@ -49,7 +34,7 @@
   /**
    * gradient
    */
-
+   
   --gradient: linear-gradient(180deg, hsla(204, 9%, 11%, 0.90) 60%, transparent 120%);
 
   /**
@@ -147,10 +132,10 @@ body {
   line-height: 1.5;
   min-height: 100vh;
   min-width: 250px;
-  background-image: url("../assets /img/tits.jpg");
-  background-size: 150%;
-  background-repeat: no-repeat;
-  background-position: top;
+  background-image: url("/assets /img/tits.jpg");
+  background-size: cover;
+  background-repeat: 2x;
+  /*background-position: top;*/
   overflow: overlay;
   -webkit-tap-highlight-color: transparent;
 }
@@ -285,6 +270,7 @@ body:hover::-webkit-scrollbar-thumb { background-color: var(--surface-variant); 
   display: grid;
   grid-template-rows: 1fr max-content;
   gap: 24px;
+ background-color:transparent ;
 }
 
 .music-banner {
