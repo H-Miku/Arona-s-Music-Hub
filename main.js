@@ -9,7 +9,7 @@
 const musicData = [
   {
     backgroundImage: "./assets /img/fuli poster.jpeg",
-    posterUrl: "./assets /img/Fuli.jpeg",
+    posterUrl: "./assets /img/fuli poster.jpeg",
     title: "Fuli Auto Shooter",
     album: "Phigros/MuseDash",
     year: 2018,
