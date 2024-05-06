@@ -378,7 +378,7 @@ body:hover::-webkit-scrollbar-thumb { background-color: var(--surface-variant); 
 /*-----------------------------------*\
   #PLAYLIST
 \*-----------------------------------*/
-
+/*
 .playlist {
   position: fixed;
   top: 0;
