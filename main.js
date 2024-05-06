@@ -83,7 +83,7 @@ const addEventOnElements = function(elements, eventType, callback) {
  * 
  * add all music in playlist, from 'musicData'
  */
-
+/*
 const playlist = document.querySelector("[data-music-list]");
 
 for (let i = 0, len = musicData.length; i < len; i++) {
@@ -109,7 +109,7 @@ for (let i = 0, len = musicData.length; i < len; i++) {
  * show 'playlist' modal sidebar when click on playlist button in top app bar
  * and hide when click on overlay or any playlist-item
  */
-
+/*
 const playlistSideModal = document.querySelector("[data-playlist]");
 const playlistTogglers = document.querySelectorAll("[data-playlist-toggler]");
 const overlay = document.querySelector("[data-overlay]");
