@@ -8,8 +8,8 @@
 
 const musicData = [
   {
-    backgroundImage: "./assets /img/fuli poster.jpeg",
-    posterUrl: "./assets /img/fuli poster.jpeg",
+    backgroundImage: "./assets/img/fuli poster.jpeg",
+    posterUrl: "./assets/img/fuli poster.jpeg",
     title: "Fuli Auto Shooter",
     album: "Phigros/MuseDash",
     year: 2018,
@@ -17,7 +17,7 @@ const musicData = [
     musicPath: "./music/MYUKKE. - FULi AUTO SHOOTER.mp3",
   },
   {
-    backgroundImage: "./assets /img/inkar.jpg",
+    backgroundImage: "./assets/img/inkar.jpg",
     posterUrl: "./music/Inkar poster.jpeg",
     title: "Inkar-Usi",
     album: "Arcaea/Rotaeno",
@@ -26,7 +26,7 @@ const musicData = [
     musicPath: "./music/inkar-usi.mp3",
   },
   {
-    backgroundImage: "./assets /img/last resort poster.jpeg",
+    backgroundImage: "./assets/img/last resort poster.jpeg",
     posterUrl: "./assets /img/last resort poster.jpeg",
     title: "Last Resort",
     album: "Punishing:Gray Raven",
@@ -35,8 +35,8 @@ const musicData = [
     musicPath: "./music/【GhostFinal】Last Resort .feat Kinoko蘑菇「Punishing- Gray Raven OST - 空晓界限」 【パニシング-グレイレイヴン】Official.mp3",
   },
   {
-    backgroundImage: "./assets /img/rabit.jpeg",
-    posterUrl: "./assets /img/rabit.jpeg",
+    backgroundImage: "./assets/img/rabit.jpeg",
+    posterUrl: "./assets/img/rabit.jpeg",
     title: "Usagi Flap",
     album: "Blue Archive",
     year: 2022,
@@ -44,8 +44,8 @@ const musicData = [
     musicPath: "./music/ブルーアーカイブ Blue Archive OST 113. Usagi Flap.mp3",
   },
   {
-    backgroundImage: "./assets /img/aru.jpeg",
-    posterUrl: "./assets /img/aru.jpeg",
+    backgroundImage: "./assets/img/aru.jpeg",
+    posterUrl: "./assets/img/aru.jpeg",
     title: "Unwelcome School",
     album: "Blue Archive",
     year: 2022,
@@ -53,8 +53,8 @@ const musicData = [
     musicPath: "./music/ブルーアーカイブ Blue Archive OST 7. Unwelcome School.mp3",
   },
   {
-    backgroundImage: "./assets /img/whoTao.jpeg",
-    posterUrl: "./assets /img/whoTao.jpeg",
+    backgroundImage: "./assets/img/whoTao.jpeg",
+    posterUrl: "./assets/img/whoTao.jpeg",
     title: "Who? Tao Theme(Let the Living Beware)",
     album: "The could never G Game",
     year: 2021,
