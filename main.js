@@ -36,7 +36,7 @@ const musicData = [
   },
   {
     backgroundImage: "./assets /img/rabit.jpeg",
-    posterUrl: "./assets /img/airs.jpeg",
+    posterUrl: "./assets /img /airs.jpeg",
     title: "Usagi Flap",
     album: "Blue Archive",
     year: 2022,
